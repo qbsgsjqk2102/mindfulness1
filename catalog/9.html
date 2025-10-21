@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тело как якорь — Медитация</title>
+  <style>
+    :root {
+      --sand-light: #f7ede2;
+      --sand-medium: #f2d0a9;
+      --sand-dark: #c19a6b;
+      --sand-soft: #f6c89f;
+      --white: #ffffff;
+      --gold: #ffdf91;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(160deg, var(--sand-light), var(--sand-soft));
+      color: #3a2e1f;
+      line-height: 1.7;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+      transition: background 2s ease;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 0;
+      background-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(4px);
+      animation: fadeIn 2s ease;
+    }
+
+    h1 {
+      color: var(--sand-dark);
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .practice {
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin: 2rem 0;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+      transform: translateY(20px);
+      opacity: 0;
+      transition: opacity 1.3s ease, transform 1.3s ease;
+    }
+
+    .practice.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      color: var(--sand-dark);
+      font-weight: 600;
+    }
+
+    blockquote {
+      background-color: rgba(255, 255, 255, 0.7);
+      border-left: 4px solid var(--sand-dark);
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      font-style: italic;
+    }
+
+    button {
+      background-color: var(--sand-dark);
+      color: var(--white);
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 40px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      margin: 1rem 0.5rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 12px rgba(193, 154, 107, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    button:hover {
+      background-color: var(--sand-soft);
+      color: var(--sand-dark);
+      transform: scale(1.05);
+    }
+
+    button:active {
+      transform: scale(0.95);
+      box-shadow: 0 0 20px rgba(255, 223, 145, 0.7);
+    }
+
+    .return-link {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.6rem;
+      background-color: var(--sand-medium);
+      color: var(--sand-dark);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .return-link:hover {
+      background-color: var(--sand-soft);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: var(--sand-dark);
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* Фоновая пульсация дыхания */
+    .pulse {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(242, 208, 169, 0.5) 0%, transparent 70%);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0.8);
+      z-index: 1;
+      animation: breathe 6s infinite ease-in-out;
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.4; }
+      50% { transform: translate(-50%, -50%) scale(1.4); opacity: 0.9; }
+    }
+
+    /* Эффект "сканирования тела" */
+    .scan-line {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background: linear-gradient(to bottom, rgba(255, 223, 145, 0.7), transparent);
+      z-index: 5;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .scan-line.active {
+      animation: scanDown 3s ease-out;
+    }
+
+    @keyframes scanDown {
+      0% { height: 0; opacity: 1; }
+      50% { height: 80vh; opacity: 0.9; }
+      100% { height: 100vh; opacity: 0; }
+    }
+
+    /* Волна дыхания */
+    .breath-wave {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 223, 145, 0.5), transparent);
+      transform: translate(-50%, -50%);
+      z-index: 6;
+      pointer-events: none;
+    }
+
+    .breath-wave.active {
+      animation: breathExpand 2.5s ease-out;
+    }
+
+    @keyframes breathExpand {
+      0% { width: 0; height: 0; opacity: 1; }
+      70% { width: 120vw; height: 120vh; opacity: 0.7; }
+      100% { width: 160vw; height: 160vh; opacity: 0; }
+    }
+
+    /* Кольцо вокруг кнопки при включении музыки */
+    .music-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(255, 223, 145, 0.4), transparent);
+      opacity: 0;
+    }
+
+    .music-ring.active {
+      animation: pulseRing 2s infinite;
+    }
+
+    @keyframes pulseRing {
+      0% { width: 0; height: 0; opacity: 0.6; }
+      50% { width: 300px; height: 300px; opacity: 0.2; }
+      100% { width: 0; height: 0; opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="pulse"></div>
+  <header>
+    <div class="container">
+      <h1>Тело как якорь</h1>
+      <p>Почувствуй присутствие через осознание тела 🕊️</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <section class="practice">
+      <p>Когда ум теряется в мыслях, тело всегда остаётся здесь — в настоящем.
+      Эта практика помогает вернуть внимание к телу, к его ритму, теплу, опоре.
+      Почувствуй, что твоё тело — это надёжный якорь, удерживающий тебя в потоке жизни.</p>
+
+      <blockquote>«Я дома — в своём теле. Здесь и сейчас.»</blockquote>
+
+      <h2>Как выполнять медитацию</h2>
+      <ol>
+        <li>Сядь удобно, почувствуй опору под собой. Сделай глубокий вдох и мягкий выдох.</li>
+        <li>Перемести внимание в стопы — ощути соприкосновение с поверхностью.</li>
+        <li>Медленно поднимай внимание вверх — к ногам, животу, груди, плечам, шее, лицу.</li>
+        <li>Наблюдай, где есть напряжение, где лёгкость. Просто будь свидетелем.</li>
+        <li>Позволь дыханию стать якорем — вдох, выдох, и ты снова здесь.</li>
+      </ol>
+
+      <button id="startScan">🪷 Сканировать тело</button>
+      <button id="focusBreath">💨 Почувствовать дыхание</button>
+      <button id="playMusic">🎵 Включить музыку <span class="music-ring" id="musicRing"></span></button>
+
+      <a href="meditations.html" class="return-link">← Вернуться к списку</a>
+    </section>
+  </div>
+
+  <div class="scan-line" id="scanLine"></div>
+  <div class="breath-wave" id="breathWave"></div>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Медитации спокойствия. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <audio id="music" src="https://cdn.pixabay.com/audio/2023/01/15/audio_65be41c65a.mp3" loop></audio>
+
+  <script>
+    const section = document.querySelector('.practice');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.3 });
+    observer.observe(section);
+
+    const scanBtn = document.getElementById('startScan');
+    const scanLine = document.getElementById('scanLine');
+    const breathBtn = document.getElementById('focusBreath');
+    const breathWave = document.getElementById('breathWave');
+    const music = document.getElementById('music');
+    const playBtn = document.getElementById('playMusic');
+    const musicRing = document.getElementById('musicRing');
+    let playing = false;
+
+    scanBtn.addEventListener('click', () => {
+      scanLine.classList.add('active');
+      setTimeout(() => scanLine.classList.remove('active'), 3000);
+    });
+
+    breathBtn.addEventListener('click', () => {
+      breathWave.classList.add('active');
+      setTimeout(() => breathWave.classList.remove('active'), 2500);
+    });
+
+    playBtn.addEventListener('click', () => {
+      if (!playing) {
+        music.play();
+        playBtn.textContent = '⏸ Остановить музыку';
+        playBtn.appendChild(musicRing);
+        musicRing.classList.add('active');
+        playing = true;
+      } else {
+        music.pause();
+        playBtn.textContent = '🎵 Включить музыку';
+        musicRing.classList.remove('active');
+        playing = false;
+      }
+    });
+  </script>
+</body>
+</html>

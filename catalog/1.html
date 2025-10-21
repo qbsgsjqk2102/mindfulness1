@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Утреннее дыхание — Практика осознанности</title>
+  <style>
+    :root {
+      --pastel-blue: #d6eaff;
+      --pastel-green: #d8f3dc;
+      --soft-blue: #a8dadc;
+      --soft-green: #b7e4c7;
+      --dark-blue: #457b9d;
+      --dark-green: #1b4332;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-green));
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: var(--dark-blue);
+      color: white;
+      text-align: center;
+      padding: 2rem 0;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .practice {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .practice.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      color: var(--dark-green);
+      margin-top: 2rem;
+    }
+
+    p, li {
+      margin-bottom: 1.2rem;
+    }
+
+    blockquote {
+      background-color: var(--soft-green);
+      border-left: 6px solid var(--dark-green);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 8px;
+      font-style: italic;
+    }
+
+    .image-section {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .image-section img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .return-link {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.6rem;
+      background-color: var(--soft-blue);
+      color: var(--dark-green);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .return-link:hover {
+      background-color: var(--soft-green);
+      transform: translateY(-2px);
+    }
+
+    /* Таймер дыхания */
+    .breathing-timer {
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .circle {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      background: var(--soft-blue);
+      box-shadow: 0 0 20px rgba(69, 123, 157, 0.3);
+      transition: transform 4s ease-in-out, background 4s ease-in-out;
+    }
+
+    .circle.inhale {
+      transform: scale(1.2);
+      background: var(--soft-green);
+    }
+
+    .circle.exhale {
+      transform: scale(1);
+      background: var(--soft-blue);
+    }
+
+    .timer-instruction {
+      font-size: 1.2rem;
+      color: var(--dark-green);
+      margin-bottom: 1rem;
+    }
+
+    .timer-settings {
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+
+    select {
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--soft-blue);
+      background: white;
+      font-size: 1rem;
+      color: var(--dark-green);
+      outline: none;
+    }
+
+    button {
+      background-color: var(--dark-blue);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: var(--dark-green);
+    }
+
+    .audio-control {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      background-color: var(--dark-green);
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      .circle { width: 140px; height: 140px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Утреннее дыхание</h1>
+      <p>Начни день спокойно и с ясностью ума ☀️</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <section class="practice">
+      <p>Эта короткая практика поможет тебе встретить новый день с лёгкостью, осознанностью и внутренним равновесием. Всего несколько минут — и твое дыхание станет источником покоя и силы.</p>
+
+      <div class="image-section">
+        <img src="https://i.pinimg.com/originals/b4/9a/77/b49a7750c530f9cb59f95c25a7a1cc52.jpg" alt="Спокойное утро и дыхание">
+      </div>
+
+      <h2>Подготовка</h2>
+      <p>Найди тихое место. Сядь удобно — можно на стул или на пол, скрестив ноги. Спина прямая, плечи расслаблены. Если хочешь, закрой глаза.</p>
+
+      <h2>Практика дыхания</h2>
+      <div class="breathing-timer">
+        <div class="timer-settings">
+          <label for="duration">⏳ Выбери длительность практики:</label>
+          <select id="duration">
+            <option value="3">3 минуты</option>
+            <option value="5" selected>5 минут</option>
+            <option value="10">10 минут</option>
+          </select>
+        </div>
+
+        <div class="circle" id="circle"></div>
+        <div class="timer-instruction" id="instruction">Глубокий вдох...</div>
+        <button id="startBreathing">Начать практику</button>
+      </div>
+
+      <blockquote>
+        «Дыхание — это тихий мост между телом и сознанием. Когда ты чувствуешь дыхание, ты возвращаешься к себе.»
+      </blockquote>
+
+      <h2>Завершение</h2>
+      <p>Сделай несколько глубоких вдохов. Почувствуй, как энергия наполняет тело. Улыбнись новому дню и поблагодари себя за этот момент присутствия.</p>
+
+      <div class="image-section">
+        <img src="https://i.pinimg.com/originals/dc/14/4c/dc144c2c8b5a5442b6a2c82e05d6e60e.jpg" alt="Солнечное утро и спокойствие">
+      </div>
+
+      <div class="audio-control">
+        <audio id="bgMusic" loop>
+          <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_9b7b0a631e.mp3" type="audio/mpeg">
+        </audio>
+        <button id="musicToggle">🎵 Включить музыку</button>
+      </div>
+
+      <a href="meditations.html" class="return-link">← Вернуться к списку медитаций</a>
+    </section>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Медитации для ума и сердца. Все права защищены.</p>
+      <p>Начни день с дыхания — и день начнёт улыбаться тебе ☀️</p>
+    </div>
+  </footer>
+
+  <script>
+    // Анимация появления секций
+    const sections = document.querySelectorAll('.practice');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+    sections.forEach(section => observer.observe(section));
+
+    // Таймер дыхания
+    const circle = document.getElementById('circle');
+    const instruction = document.getElementById('instruction');
+    const startBtn = document.getElementById('startBreathing');
+    const durationSelect = document.getElementById('duration');
+    let breathingInterval, totalDuration;
+
+    startBtn.addEventListener('click', () => {
+      totalDuration = parseInt(durationSelect.value) * 60 * 1000;
+      let phase = 'inhale';
+      instruction.textContent = 'Глубокий вдох...';
+      circle.classList.add('inhale');
+      startBtn.disabled = true;
+      durationSelect.disabled = true;
+
+      let elapsed = 0;
+      const intervalTime = 8000;
+      breathingInterval = setInterval(() => {
+        if (phase === 'inhale') {
+          phase = 'exhale';
+          instruction.textContent = 'Медленный выдох...';
+          circle.classList.remove('inhale');
+          circle.classList.add('exhale');
+        } else {
+          phase = 'inhale';
+          instruction.textContent = 'Глубокий вдох...';
+          circle.classList.remove('exhale');
+          circle.classList.add('inhale');
+        }
+        elapsed += intervalTime;
+        if (elapsed >= totalDuration) {
+          clearInterval(breathingInterval);
+          instruction.textContent = 'Практика завершена 🌿';
+          circle.classList.remove('inhale', 'exhale');
+          startBtn.disabled = false;
+          durationSelect.disabled = false;
+        }
+      }, intervalTime);
+    });
+
+    // Музыка
+    const music = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicToggle');
+    let isPlaying = false;
+
+    musicBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        music.pause();
+        musicBtn.textContent = '🎵 Включить музыку';
+      } else {
+        music.play();
+        musicBtn.textContent = '🔇 Выключить музыку';
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
+</body>
+</html>

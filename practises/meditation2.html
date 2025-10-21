@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Техника дыхания 4-7-8</title>
+    <style>
+        :root {
+            --pastel-blue: #d6eaff;
+            --pastel-green: #d8f3dc;
+            --soft-blue: #a8dadc;
+            --soft-green: #b7e4c7;
+            --dark-blue: #457b9d;
+            --dark-green: #1b4332;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-green));
+            color: #333;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: var(--dark-blue);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .intro {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .technique {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .technique-description {
+            flex: 1;
+            min-width: 300px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        .benefits {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .benefit-item {
+            background-color: var(--soft-blue);
+            padding: 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .benefit-icon {
+            margin-right: 1rem;
+            background-color: var(--dark-green);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .practice-section {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .timer-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .timer-display {
+            font-size: 4rem;
+            font-weight: bold;
+            color: var(--dark-blue);
+            margin: 1rem 0;
+        }
+
+        .timer-steps {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .timer-step {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--soft-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .timer-step.active {
+            background-color: var(--dark-green);
+            color: white;
+        }
+
+        button {
+            background-color: var(--dark-blue);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: var(--dark-green);
+        }
+
+        .visual-guide {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .visual-guide img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: var(--dark-green);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .timer-display {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Техника дыхания 4-7-8</h1>
+            <p>Мощный инструмент для релаксации и снижения стресса</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="intro">
+            <h2>Что такое техника 4-7-8?</h2>
+            <p>Это простая, но эффективная дыхательная техника, которая помогает быстро успокоиться, снизить уровень стресса и подготовиться ко сну. Методика была разработана доктором Эндрю Вейлом на основе древних йогических практик.</p>
+        </section>
+
+        <section class="technique">
+            <div class="technique-description">
+                <h2>Как выполнять технику 4-7-8?</h2>
+                <ol>
+                    <li>Сядьте прямо или лягте на спину в удобном положении</li>
+                    <li>Полностью выдохните через рот</li>
+                    <li>Закройте рот и медленно вдохните через нос, считая до 4</li>
+                    <li>Задержите дыхание, считая до 7</li>
+                    <li>Медленно выдохните через рот, считая до 8 (издавайте свистящий звук)</li>
+                    <li>Повторите цикл 3-4 раза</li>
+                </ol>
+            </div>
+
+            <div class="video-container">
+                <!-- Встраиваем видео с YouTube -->
+                <iframe src="https://rutube.ru/play/embed/3be5ff2a2fb8aac37dfa55040fbeb0f9/?autoStart=true&wmode=opaque" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section class="visual-guide">
+            <img src="https://i.pinimg.com/originals/50/2e/f3/502ef3ceabed0a3c80873acb0e07ecab.gif" alt="Инфографика техники дыхания 4-7-8: последовательность вдох на 4 счета, задержка на 7 счетов, выдох на 8 счетов" />
+        </section>
+
+        <section class="benefits">
+            <h2>Преимущества техники 4-7-8</h2>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <div class="benefit-icon">1</div>
+                    <div>Снижает уровень стресса и тревожности</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">2</div>
+                    <div>Помогает быстро заснуть</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">3</div>
+                    <div>Улучшает концентрацию внимания</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">4</div>
+                    <div>Нормализует кровяное давление</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">5</div>
+                    <div>Улучшает пищеварение</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">6</div>
+                    <div>Усиливает контроль над эмоциями</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="practice-section">
+            <h2>Попробуйте прямо сейчас!</h2>
+            <p>Используйте наш таймер для практики техники дыхания.</p>
+
+            <div class="timer-container">
+                <div class="timer-display" id="timer">4</div>
+                <div class="timer-steps">
+                    <div class="timer-step active" id="step1">1</div>
+                    <div class="timer-step" id="step2">2</div>
+                    <div class="timer-step" id="step3">3</div>
+                    <div class="timer-step" id="step4">4</div>
+                </div>
+                <button id="startBtn">Начать упражнение</button>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 Техника дыхания 4-7-8. Все права защищены.</p>
+            <p>Консультация с врачом рекомендуется перед началом любых дыхательных практик.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const timerDisplay = document.getElementById('timer');
+            const startBtn = document.getElementById('startBtn');
+            const steps = Array.from(document.querySelectorAll('.timer-step'));
+
+            let isRunning = false;
+            let cycle = 0;
+            let phase = 'inhale'; // inhale, hold, exhale
+            let count = 4;
+            let timerId;
+
+            startBtn.addEventListener('click', function() {
+                if (isRunning) {
+                    clearInterval(timerId);
+                    startBtn.textContent = 'Начать упражнение';
+                    isRunning = false;
+                    count = 4;
+                    phase = 'inhale';
+                    timerDisplay.textContent = count;
+                    updateSteps(0);
+                } else {
+                    startExercise();
+                    startBtn.textContent = 'Остановить';
+                    isRunning = true;
+                }
+            });
+
+            function startExercise() {
+                timerId = setInterval(function() {
+                    if (count > 1) {
+                        count--;
+                        timerDisplay.textContent = count;
+                    } else {
+                        switch(phase) {
+                            case 'inhale':
+                                phase = 'hold';
+                                count = 7;
+                                cycle++;
+                                updateSteps(cycle);
+                                break;
+                            case 'hold':
+                                phase = 'exhale';
+                                count = 8;
+                                break;
+                            case 'exhale':
+                                phase = 'inhale';
+                                count = 4;
+                                cycle++;
+                                updateSteps(cycle);
+                                break;
+                        }
+
+                        if (cycle >= 4) {
+                            clearInterval(timerId);
+                            startBtn.textContent = 'Начать упражнение';
+                            isRunning = false;
+                            cycle = 0;
+                            phase = 'inhale';
+                            count = 4;
+                            timerDisplay.textContent = 'Завершено!';
+                            return;
+                        }
+
+                        timerDisplay.textContent = count;
+                    }
+                }, 1000);
+            }
+
+            function updateSteps(currentCycle) {
+                steps.forEach((step, index) => {
+                    step.classList.remove('active');
+                    if (index < currentCycle) {
+                        step.classList.add('active');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+

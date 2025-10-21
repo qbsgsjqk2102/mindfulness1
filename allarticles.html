@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mindfulness — Путь к осознанности</title>
+  <style>
+    :root {
+      --pastel-blue: #d6eaff;
+      --pastel-green: #d8f3dc;
+      --soft-blue: #a8dadc;
+      --soft-green: #b7e4c7;
+      --dark-blue: #1d3557;
+      --dark-green: #1b4332;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-green));
+      color: #333;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: var(--dark-blue);
+      color: white;
+      text-align: center;
+      padding: 2rem 0;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.6rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .intro {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .article-card {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 14px;
+      padding: 1.6rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .article-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .article-card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .article-card:hover::before {
+      opacity: 1;
+    }
+
+    .article-card h3 {
+      color: var(--dark-blue);
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+    }
+
+    .article-card p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    .icon-circle {
+      background-color: var(--soft-blue);
+      color: var(--dark-green);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin: 0 auto 1rem;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .article-card:hover .icon-circle {
+      background-color: var(--soft-green);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      background-color: var(--dark-green);
+      color: white;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Mindfulness — Путь к осознанности</h1>
+      <p>10 вдохновляющих статей о жизни в настоящем моменте 🌿</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <section class="intro">
+      <h2>Что ты найдёшь здесь?</h2>
+      <p>Эти статьи помогут тебе глубже понять принципы mindfulness — искусства жить здесь и сейчас, с вниманием и добротой к себе. Исследуй темы внутреннего покоя, принятия и осознанных привычек.</p>
+    </section>
+
+    <section class="article-grid">
+      <a href="catalog1/1.html" class="article-card">
+        <div class="icon-circle">1</div>
+        <h3>Что такое осознанность?</h3>
+        <p>Основы практики mindfulness и как начать свой путь.</p>
+      </a>
+
+      <a href="catalog1/2.html" class="article-card">
+        <div class="icon-circle">2</div>
+        <h3>Как остановить внутренний шум</h3>
+        <p>Простые техники для успокоения ума и фокусировки.</p>
+      </a>
+
+      <a href="catalog1/3.html" class="article-card">
+        <div class="icon-circle">3</div>
+        <h3>Маленькие паузы в течение дня</h3>
+        <p>Как находить осознанность в повседневных делах.</p>
+      </a>
+
+      <a href="catalog1/4.html" class="article-card">
+        <div class="icon-circle">4</div>
+        <h3>Дыхание как якорь</h3>
+        <p>Используй дыхание, чтобы вернуться к настоящему.</p>
+      </a>
+
+      <a href="catalog1/5.html" class="article-card">
+        <div class="icon-circle">5</div>
+        <h3>Отпускание контроля</h3>
+        <p>Научись доверять жизни и снижать внутреннее напряжение.</p>
+      </a>
+
+      <a href="catalog1/6.html" class="article-card">
+        <div class="icon-circle">6</div>
+        <h3>Благодарность как путь к счастью</h3>
+        <p>Почему признательность помогает жить осознаннее.</p>
+      </a>
+
+      <a href="catalog1/7.html" class="article-card">
+        <div class="icon-circle">7</div>
+        <h3>Осознанность в отношениях</h3>
+        <p>Как внимательность помогает строить гармоничные связи.</p>
+      </a>
+
+      <a href="catalog1/8.html" class="article-card">
+        <div class="icon-circle">8</div>
+        <h3>Сила настоящего момента</h3>
+        <p>Обрети внутренний покой, возвращаясь в «здесь и сейчас».</p>
+      </a>
+
+      <a href="catalog1/9.html" class="article-card">
+        <div class="icon-circle">9</div>
+        <h3>Тело как инструмент осознанности</h3>
+        <p>Чувствуй, наблюдай и слушай сигналы своего тела.</p>
+      </a>
+
+      <a href="catalog1/10.html" class="article-card">
+        <div class="icon-circle">10</div>
+        <h3>Путь к внутренней гармонии</h3>
+        <p>Как регулярная практика mindfulness меняет жизнь.</p>
+      </a>
+    </section>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Mindfulness Journey. Все права защищены.</p>
+      <p>Каждая осознанная минута — шаг к внутренней свободе 🌸</p>
+    </div>
+  </footer>
+</body>
+</html>

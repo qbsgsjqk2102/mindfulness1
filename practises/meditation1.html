@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Утренняя Медитация — Mindfulness</title>
+  <style>
+    :root {
+      --background: #d4f1f9;
+      --light-blue: #a1e0f0;
+      --soft-green: #d5e8e0;
+      --mint-green: #b6e3d7;
+      --text-color: #4a6b71;
+      --button-hover: #8cc6d5;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--background);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--light-blue);
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(74, 107, 113, 0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 2.4rem;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(74, 107, 113, 0.15);
+      margin-bottom: 2rem;
+      background: var(--soft-green);
+    }
+
+    .video-container iframe,
+    .video-container video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+    }
+
+    section.content {
+      background: var(--mint-green);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(74, 107, 113, 0.1);
+    }
+
+    section.content h2 {
+      margin-top: 0;
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    section.content p {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    /* Интерактивные детали */
+    .benefits-list {
+      list-style: none;
+      padding-left: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .benefit-item {
+      background: var(--light-blue);
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 2px 6px rgba(74, 107, 113, 0.15);
+      user-select: none;
+      position: relative;
+    }
+
+    .benefit-item:hover {
+      background-color: var(--button-hover);
+      color: white;
+    }
+
+    .benefit-description {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: var(--text-color);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .benefit-item.active .benefit-description {
+      max-height: 200px; /* раскрывается */
+    }
+
+    footer {
+      margin: 3rem 0 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-color);
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Утренняя Медитация Mindfulness</h1>
+</header>
+
+<main>
+  <div class="video-container">
+    <!-- Вставь сюда ссылку на видео -->
+    <iframe src="https://www.youtube.com/embed/inpok4MKVLM"
+            title="Утренняя медитация" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+  </div>
+
+  <section class="content">
+    <h2>Польза утренней медитации</h2>
+    <p>Начинать день с медитации — отличный способ настроить ум и тело на продуктивность и спокойствие. Утренняя практика помогает уменьшить стресс, повысить концентрацию и улучшить эмоциональное состояние на весь день.</p>
+    <p>Исследования показывают, что регулярная медитация способствует снижению уровня кортизола — гормона стресса, улучшает качество сна и помогает развивать устойчивость к жизненным вызовам.</p>
+    <p>Кроме того, уделяя время себе с утра, вы задаете позитивный тон всему дню, укрепляя связь с настоящим моментом.</p>
+
+    <ul class="benefits-list">
+      <li class="benefit-item" tabindex="0">
+        Снижение стресса
+        <div class="benefit-description">
+          Медитация активирует парасимпатическую нервную систему, которая расслабляет тело и ум, уменьшая уровень тревоги.
+        </div>
+      </li>
+      <li class="benefit-item" tabindex="0">
+        Повышение концентрации
+        <div class="benefit-description">
+          Утренняя практика помогает улучшить внимание и сосредоточенность, что положительно влияет на рабочую эффективность.
+        </div>
+      </li>
+      <li class="benefit-item" tabindex="0">
+        Улучшение настроения
+        <div class="benefit-description">
+          Медитация способствует выработке эндорфинов и снижению уровня негативных эмоций, помогая начать день с позитивом.
+        </div>
+      </li>
+      <li class="benefit-item" tabindex="0">
+        Укрепление иммунитета
+        <div class="benefit-description">
+          Регулярная медитация связана с улучшением работы иммунной системы, что помогает реже болеть.
+        </div>
+      </li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  © 2025 Mindfulness Practice
+</footer>
+
+<script>
+  // Интерактивность для раскрытия описания пользы при клике или по нажатию Enter/Space
+  document.querySelectorAll('.benefit-item').forEach(item => {
+    item.addEventListener('click', () => {
+      item.classList.toggle('active');
+    });
+
+    item.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        item.classList.toggle('active');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

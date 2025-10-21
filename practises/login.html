@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Регистрация — День за днем</title>
+<style>
+  :root {
+    --bg-color: #d4f1f9;
+    --light-blue: #a1e0f0;
+    --soft-green: #d5e8e0;
+    --mint-green: #b6e3d7;
+    --text-color: #4a6b71;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .register-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    max-width: 400px;
+    width: 100%;
+    padding: 30px 40px;
+  }
+
+  h2 {
+    margin-top: 0;
+    font-weight: 700;
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 25px;
+  }
+
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px 14px;
+    border: 2px solid var(--light-blue);
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--text-color);
+    box-sizing: border-box;
+    margin-bottom: 18px;
+    transition: border-color 0.3s ease;
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    outline: none;
+    border-color: var(--mint-green);
+    background-color: var(--soft-green);
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    background: var(--mint-green);
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background: var(--soft-green);
+  }
+
+  .footer-text {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 14px;
+    color: var(--text-color);
+    opacity: 0.7;
+  }
+
+  a {
+    color: var(--light-blue);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+<div class="register-container" role="main" aria-label="Регистрация пользователя">
+  <h2>Регистрация</h2>
+
+  <form action="#" method="POST" novalidate>
+    <label for="name">Имя</label>
+    <input type="text" id="name" name="name" placeholder="Ваше имя" required autocomplete="name" />
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="example@mail.com" required autocomplete="email" />
+
+    <label for="password">Пароль</label>
+    <input type="password" id="password" name="password" placeholder="Введите пароль" required autocomplete="new-password" />
+
+    <label for="password-confirm">Подтверждение пароля</label>
+    <input type="password" id="password-confirm" name="password-confirm" placeholder="Повторите пароль" required autocomplete="new-password" />
+
+    <button type="submit">Зарегистрироваться</button>
+  </form>
+
+  <p class="footer-text">
+    Уже есть аккаунт? <a href="#login">Войти</a>
+  </p>
+</div>
+
+</body>
+</html>

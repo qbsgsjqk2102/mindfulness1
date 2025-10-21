@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Осознанность в отношениях</title>
+  <style>
+    :root {
+      --rose: #ffe6eb;
+      --soft: #fffafc;
+      --deep: #4a1c40;
+      --accent: #d88cb4;
+      --heart: #f15bb5;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, var(--soft), var(--rose));
+      color: var(--deep);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: var(--deep);
+      color: white;
+      text-align: center;
+      padding: 2.2rem 1rem;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      opacity: 0.9;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2.5rem auto;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 14px;
+      padding: 2rem;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    h2 {
+      color: var(--deep);
+      margin-top: 1.8rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    .note {
+      background: linear-gradient(90deg, #fff4f7, #ffffff);
+      padding: 1rem 1.2rem;
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      margin: 1.2rem 0;
+      font-style: italic;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    button {
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 30px;
+      padding: 0.9rem 1.4rem;
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn {
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 6px 18px rgba(74, 28, 64, 0.2);
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 26px rgba(74, 28, 64, 0.3);
+    }
+
+    .outline {
+      background: transparent;
+      color: var(--deep);
+      border: 2px solid rgba(74, 28, 64, 0.1);
+    }
+
+    footer {
+      background-color: var(--deep);
+      color: white;
+      text-align: center;
+      padding: 1.8rem 1rem;
+      margin-top: 2rem;
+    }
+
+    /* Пульс сердца */
+    .heart {
+      width: 60px;
+      height: 60px;
+      background-color: var(--heart);
+      position: relative;
+      transform: rotate(-45deg);
+      animation: pulse 3s infinite ease-in-out;
+      margin: 2rem auto;
+      cursor: pointer;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 60px;
+      height: 60px;
+      background-color: var(--heart);
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart::before {
+      top: -30px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 30px;
+      top: 0;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: rotate(-45deg) scale(1); opacity: 1; }
+      50% { transform: rotate(-45deg) scale(1.2); opacity: 0.8; }
+    }
+
+    /* Окно практики */
+    .practice-box {
+      display: none;
+      background: rgba(255, 250, 252, 0.95);
+      border-radius: 12px;
+      border: 1px solid rgba(218, 140, 180, 0.2);
+      padding: 1.5rem;
+      margin-top: 1rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .practice-step {
+      margin-bottom: 1rem;
+      background: #fff;
+      border-left: 4px solid var(--accent);
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+    }
+
+    .spark {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(241,91,181,0.5) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: fade 1.5s ease-out forwards;
+      z-index: 1000;
+    }
+
+    @keyframes fade {
+      from {opacity: 1; transform: scale(1);}
+      to {opacity: 0; transform: scale(2);}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Осознанность в отношениях</h1>
+    <p>Как внимательность помогает строить гармоничные связи</p>
+  </header>
+
+  <main>
+    <p>Настоящая близость начинается не с идеальных слов, а с присутствия. Быть рядом — значит быть внимательным: к эмоциям, жестам, паузам и дыханию другого человека. Осознанность в отношениях помогает слышать глубже и говорить мягче. Когда мы действительно присутствуем, даже молчание становится общением.</p>
+
+    <p>В повседневной спешке легко потерять ощущение связи. Мы слушаем, чтобы ответить, а не чтобы понять. Но если остановиться — вдохнуть, посмотреть в глаза, почувствовать присутствие другого — появляется пространство для настоящего контакта. В нём рождается доверие.</p>
+
+    <div class="note">Осознанность — это язык сердца, который не требует слов.</div>
+
+    <h2>Как внимательность меняет отношения</h2>
+    <p><strong>1. Слушай не только ушами.</strong> Замечай выражение лица, дыхание, тон. Иногда то, что человек не сказал, говорит больше, чем слова.</p>
+    <p><strong>2. Не спеши с реакцией.</strong> Прежде чем ответить, сделай паузу. Она даёт пространство для мягкости и выбора, а не для импульса.</p>
+    <p><strong>3. Благодари за откровенность.</strong> Даже если слышать нелегко, цени честность — это шаг к настоящей близости.</p>
+
+    <div class="heart" id="heart"></div>
+
+    <div class="actions">
+      <button class="btn" id="practiceBtn">Практика присутствия 💞</button>
+      <button class="outline" id="pulseBtn">Почувствовать пульс связи 🌸</button>
+    </div>
+
+    <div class="practice-box" id="practiceBox">
+      <p><strong>Упражнение “Пять минут тишины”</strong></p>
+      <div class="practice-step">1. Сядьте рядом с близким человеком в тишине. Не нужно говорить.</div>
+      <div class="practice-step">2. Почувствуйте дыхание — своё и другого. Просто наблюдайте.</div>
+      <div class="practice-step">3. Посмотрите в глаза. Не ищите смысла, просто будьте вместе.</div>
+      <div class="practice-step">4. Почувствуйте, как присутствие рождает спокойствие и тепло.</div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Медитации для ума и сердца</p>
+    <p>Осознанность — это мост между сердцами 💗</p>
+  </footer>
+
+  <script>
+    const heart = document.getElementById('heart');
+    const practiceBtn = document.getElementById('practiceBtn');
+    const practiceBox = document.getElementById('practiceBox');
+    const pulseBtn = document.getElementById('pulseBtn');
+
+    // Эффект искр
+    function createSpark(x, y) {
+      const spark = document.createElement('div');
+      spark.className = 'spark';
+      spark.style.left = x + 'px';
+      spark.style.top = y + 'px';
+      document.body.appendChild(spark);
+      setTimeout(() => spark.remove(), 1500);
+    }
+
+    // Сердце "дышит" при нажатии
+    heart.addEventListener('click', (e) => {
+      heart.style.animation = 'pulse 0.8s ease-in-out 1';
+      setTimeout(() => heart.style.animation = 'pulse 3s infinite ease-in-out', 800);
+      for (let i = 0; i < 20; i++) {
+        const x = e.clientX + (Math.random() - 0.5) * 200;
+        const y = e.clientY + (Math.random() - 0.5) * 200;
+        createSpark(x, y);
+      }
+    });
+
+    // Показ практики
+    practiceBtn.addEventListener('click', () => {
+      practiceBox.style.display = practiceBox.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // “Пульс связи” — мягкая вибрация экрана
+    pulseBtn.addEventListener('click', () => {
+      document.body.animate([
+        { transform: 'scale(1)', backgroundColor: 'rgba(255,255,255,1)' },
+        { transform: 'scale(1.01)', backgroundColor: 'rgba(255,245,247,1)' },
+        { transform: 'scale(1)', backgroundColor: 'rgba(255,255,255,1)' }
+      ], {
+        duration: 2000,
+        iterations: 1,
+        easing: 'ease-in-out'
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мгновение осознанности — Медитация</title>
+  <style>
+    :root {
+      --sky-light: #e0f7f4;
+      --sky-soft: #bce3dc;
+      --sky-accent: #8fc1b3;
+      --sand-dark: #5a4d3f;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(160deg, var(--sky-light), var(--sky-soft));
+      color: var(--sand-dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+      transition: background 1s ease;
+      position: relative;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 0;
+      background-color: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(4px);
+      animation: fadeIn 2s ease;
+    }
+
+    h1 {
+      color: var(--sky-accent);
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .practice {
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin: 2rem 0;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.3s ease, transform 1.3s ease;
+    }
+
+    .practice.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      color: var(--sky-accent);
+    }
+
+    blockquote {
+      background-color: rgba(255, 255, 255, 0.7);
+      border-left: 4px solid var(--sky-accent);
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      font-style: italic;
+    }
+
+    button {
+      background-color: var(--sky-accent);
+      color: var(--white);
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 40px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      margin: 1rem 0.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(143, 193, 179, 0.4);
+    }
+
+    button:hover {
+      background-color: var(--sky-soft);
+      color: var(--sand-dark);
+      transform: scale(1.05);
+    }
+
+    button:active {
+      transform: scale(0.96);
+      box-shadow: 0 0 25px rgba(143, 193, 179, 0.7);
+    }
+
+    .return-link {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.6rem;
+      background-color: var(--sky-accent);
+      color: var(--white);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .return-link:hover {
+      background-color: var(--sky-soft);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: var(--sky-accent);
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* Эффект паузы и сияния */
+    .moment-flash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(224,247,244,0.4) 50%, transparent 100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      z-index: 5;
+    }
+
+    .moment-flash.active {
+      animation: flashMoment 2.5s ease-out;
+    }
+
+    @keyframes flashMoment {
+      0% { opacity: 0; transform: scale(0.8); }
+      30% { opacity: 0.8; transform: scale(1); }
+      60% { opacity: 0.5; }
+      100% { opacity: 0; }
+    }
+
+    /* Свет дыхания */
+    .breath-glow {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(143,193,179,0.5), transparent);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 6;
+    }
+
+    .breath-glow.active {
+      animation: breatheExpand 3s ease-out;
+    }
+
+    @keyframes breatheExpand {
+      0% { width: 0; height: 0; opacity: 1; }
+      60% { width: 130vw; height: 130vh; opacity: 0.7; }
+      100% { width: 160vw; height: 160vh; opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Мгновение осознанности</h1>
+      <p>Пауза, чтобы вернуться в здесь и сейчас 🌿</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <section class="practice">
+      <p>Иногда вся сила кроется в одной короткой паузе.
+      В миге, когда ты перестаёшь спешить и замечаешь дыхание, звук вокруг, ощущение присутствия.
+      Это и есть осознанность — возвращение домой, в настоящий момент.</p>
+
+      <blockquote>«Остановись. Подыши. Ты уже здесь.»</blockquote>
+
+      <h2>Как практиковать</h2>
+      <ol>
+        <li>Сделай мягкий вдох и почувствуй, как воздух наполняет грудь.</li>
+        <li>С выдохом позволь мыслям утихнуть, словно волнам, сходящим на нет.</li>
+        <li>Просто будь здесь — ничего не нужно менять.</li>
+        <li>Заметь, как спокойствие само возникает в этой паузе.</li>
+      </ol>
+
+      <button id="pauseMoment">🕰 Поймать момент</button>
+      <button id="softBreath">💨 Мягкий вдох</button>
+
+      <a href="meditations.html" class="return-link">← Вернуться к списку</a>
+    </section>
+  </div>
+
+  <div class="moment-flash" id="momentFlash"></div>
+  <div class="breath-glow" id="breathGlow"></div>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Медитации спокойствия. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script>
+    const section = document.querySelector('.practice');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.3 });
+    observer.observe(section);
+
+    const flash = document.getElementById('momentFlash');
+    const glow = document.getElementById('breathGlow');
+
+    document.getElementById('pauseMoment').addEventListener('click', () => {
+      flash.classList.add('active');
+      setTimeout(() => flash.classList.remove('active'), 2500);
+    });
+
+    document.getElementById('softBreath').addEventListener('click', () => {
+      glow.classList.add('active');
+      setTimeout(() => glow.classList.remove('active'), 3000);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Медитации для ума и сердца</title>
+  <style>
+    :root {
+      --pastel-blue: #d6eaff;
+      --pastel-green: #d8f3dc;
+      --soft-blue: #a8dadc;
+      --soft-green: #b7e4c7;
+      --dark-blue: #457b9d;
+      --dark-green: #1b4332;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-green));
+      color: #333;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: var(--dark-blue);
+      color: white;
+      text-align: center;
+      padding: 2rem 0;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .intro {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 2rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .meditation-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .meditation-card {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .meditation-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 14px rgba(0, 0, 0, 0.15);
+    }
+
+    .meditation-card h3 {
+      color: var(--dark-blue);
+      margin-top: 0.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .meditation-card p {
+      color: #555;
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    .icon-circle {
+      background-color: var(--soft-blue);
+      color: var(--dark-green);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin: 0 auto 1rem;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      background-color: var(--dark-green);
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Медитации для ума и сердца</h1>
+      <p>Выбери практику, которая откликнется тебе сегодня 🌿</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <section class="intro">
+      <h2>Как использовать этот раздел?</h2>
+      <p>Найди медитацию, которая подходит твоему настроению или состоянию. Каждое окошко — это короткий переход к практике осознанности, расслабления или внутреннего равновесия.</p>
+    </section>
+
+    <section class="meditation-grid">
+      <!-- 20 карточек -->
+      <a href="catalog/1.html" class="meditation-card">
+        <div class="icon-circle">1</div>
+        <h3>Утреннее дыхание</h3>
+        <p>Начни день спокойно и с ясностью ума.</p>
+      </a>
+
+      <a href="catalog/2.html" class="meditation-card">
+        <div class="icon-circle">2</div>
+        <h3>5 минут тишины</h3>
+        <p>Короткая пауза, чтобы услышать себя.</p>
+      </a>
+
+      <a href="catalog/3.html" class="meditation-card">
+        <div class="icon-circle">3</div>
+        <h3>Осознанное дыхание</h3>
+        <p>Фокус на вдохе и выдохе — возвращение в момент.</p>
+      </a>
+
+      <a href="catalog/4.html" class="meditation-card">
+        <div class="icon-circle">4</div>
+        <h3>Отпускание напряжения</h3>
+        <p>Расслабление тела и ума после трудного дня.</p>
+      </a>
+
+      <a href="catalog/5.html" class="meditation-card">
+        <div class="icon-circle">5</div>
+        <h3>Медитация благодарности</h3>
+        <p>Развивай чувство признательности и тепла.</p>
+      </a>
+
+      <a href="catalog/6.html" class="meditation-card">
+        <div class="icon-circle">6</div>
+        <h3>Вечерняя тишина</h3>
+        <p>Спокойное завершение дня с мягким дыханием.</p>
+      </a>
+
+      <a href="catalog/7.html" class="meditation-card">
+        <div class="icon-circle">7</div>
+        <h3>Любящая доброта</h3>
+        <p>Пошли добро себе и миру вокруг.</p>
+      </a>
+
+      <a href="catalog/8.html" class="meditation-card">
+        <div class="icon-circle">8</div>
+        <h3>Отпустить контроль</h3>
+        <p>Позволь жизни течь естественно и свободно.</p>
+      </a>
+
+      <a href="catalog/9.html" class="meditation-card">
+        <div class="icon-circle">9</div>
+        <h3>Тело как якорь</h3>
+        <p>Почувствуй присутствие через осознание тела.</p>
+      </a>
+
+      <a href="catalog/10.html" class="meditation-card">
+        <div class="icon-circle">10</div>
+        <h3>Мгновение осознанности</h3>
+        <p>Пауза, чтобы вернуться в здесь и сейчас.</p>
+      </a>
+
+      <a href="catalog/11.html" class="meditation-card">
+        <div class="icon-circle">11</div>
+        <h3>Медитация природы</h3>
+        <p>Соединись с ритмом земли, ветра и света.</p>
+      </a>
+
+      <a href="catalog/12.html" class="meditation-card">
+        <div class="icon-circle">12</div>
+        <h3>Мягкое пробуждение</h3>
+        <p>Начни утро без спешки и с улыбкой.</p>
+      </a>
+
+      <a href="catalog/13.html" class="meditation-card">
+        <div class="icon-circle">13</div>
+        <h3>Принятие эмоций</h3>
+        <p>Позволь себе чувствовать без осуждения.</p>
+      </a>
+
+      <a href="catalog/14.html" class="meditation-card">
+        <div class="icon-circle">14</div>
+        <h3>Осознанное движение</h3>
+        <p>Медитация через лёгкие растяжки и дыхание.</p>
+      </a>
+
+      <a href="catalog/15.html" class="meditation-card">
+        <div class="icon-circle">15</div>
+        <h3>Путь к спокойствию</h3>
+        <p>Практика внутренней тишины и уверенности.</p>
+      </a>
+
+      <a href="catalog/16.html" class="meditation-card">
+        <div class="icon-circle">16</div>
+        <h3>Энергия света</h3>
+        <p>Визуализация, наполняющая тело и ум теплом.</p>
+      </a>
+
+      <a href="catalog/17.html" class="meditation-card">
+        <div class="icon-circle">17</div>
+        <h3>Дыхание сердца</h3>
+        <p>Почувствуй ритм жизни внутри себя.</p>
+      </a>
+
+      <a href="catalog/18.html" class="meditation-card">
+        <div class="icon-circle">18</div>
+        <h3>Медитация присутствия</h3>
+        <p>Просто быть. Без спешки, без ожиданий.</p>
+      </a>
+
+      <a href="catalog/19.html" class="meditation-card">
+        <div class="icon-circle">19</div>
+        <h3>Вдохновляющий вечер</h3>
+        <p>Практика благодарности и покоя перед сном.</p>
+      </a>
+
+      <a href="catalog/20.html" class="meditation-card">
+        <div class="icon-circle">20</div>
+        <h3>Покой внутри</h3>
+        <p>Глубокое расслабление и тишина для ума.</p>
+      </a>
+    </section>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Медитации для ума и сердца. Все права защищены.</p>
+      <p>Каждая минута осознанности — шаг к внутренней гармонии 🌸</p>
+    </div>
+  </footer>
+</body>
+</html>

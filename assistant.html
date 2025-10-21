@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digital Detox Assistant — ИИ Коуч</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      background: #f4f4f8;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    header {
+      background-color: #6c63ff;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    #chat-window {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .user, .assistant {
+      padding: 0.5rem 1rem;
+      border-radius: 12px;
+      margin-bottom: 0.5rem;
+      max-width: 80%;
+      white-space: pre-wrap;
+    }
+
+    .user {
+      background-color: #d1e7dd;
+      align-self: flex-end;
+      text-align: right;
+    }
+
+    .assistant {
+      background-color: #e0dcff;
+      align-self: flex-start;
+      text-align: left;
+    }
+
+    #input-area {
+      display: flex;
+      padding: 1rem;
+      background-color: #eee;
+    }
+
+    #user-input {
+      flex: 1;
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+
+    #send-button {
+      padding: 0.5rem 1rem;
+      background-color: #6c63ff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-left: 0.5rem;
+    }
+
+    #send-button:disabled {
+      background-color: #aaa;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>💬 Digital Detox Assistant — ИИ Коуч</h1>
+    <p>Ваш мотивирующий и заботливый помощник</p>
+  </header>
+
+  <div id="chat-window"></div>
+
+  <div id="input-area">
+    <input type="text" id="user-input" placeholder="Напиши свой вопрос или запрос..." autocomplete="off" />
+    <button id="send-button">Отправить</button>
+  </div>
+
+  <script type="module">
+    const apiKey = "6f87f57a3e4f7ebb331030dda0e8616c03c3b0fb22468a1cbb46e68cdef60682";
+    const model = "mistralai/Mixtral-8x7B-Instruct-v0.1";
+
+    const input = document.getElementById("user-input");
+    const sendButton = document.getElementById("send-button");
+    const chatWindow = document.getElementById("chat-window");
+
+    // ⬇ История сообщений
+    const chatHistory = [
+      {
+        role: "system",
+        content: `Ты — внимательный и эмпатичный коуч по цифровой осознанности.
+Отвечай подробно, избегай повторений, поддерживай пользователя, давай конкретные советы и мотивацию.`,
+      }
+    ];
+
+    function appendMessage(role, text) {
+      const msg = document.createElement("div");
+      msg.className = role;
+      msg.innerText = text;
+      chatWindow.appendChild(msg);
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+
+    async function sendMessage() {
+      const userText = input.value.trim();
+      if (!userText) return;
+
+      // Заблокировать ввод
+      input.disabled = true;
+      sendButton.disabled = true;
+
+      // Добавить сообщение пользователя
+      appendMessage("user", userText);
+      chatHistory.push({ role: "user", content: userText });
+      input.value = "";
+
+      // Добавить сообщение-заглушку
+      appendMessage("assistant", "💬 Думаю...");
+      const latestAssistant = document.querySelectorAll(".assistant");
+      const thinkingMessage = latestAssistant[latestAssistant.length - 1];
+
+      const body = {
+        model,
+        messages: chatHistory,
+        temperature: 0.9,
+        top_p: 0.9,
+        max_tokens: 1024
+      };
+
+      try {
+        const res = await fetch("https://api.together.xyz/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${apiKey}`,
+          },
+          body: JSON.stringify(body),
+        });
+
+        if (!res.ok) {
+          throw new Error(`Ошибка: ${res.status}`);
+        }
+
+        const data = await res.json();
+        const text = data.choices?.[0]?.message?.content || "❌ Ошибка: пустой ответ от модели";
+        thinkingMessage.innerText = text;
+        chatHistory.push({ role: "assistant", content: text });
+      } catch (err) {
+        thinkingMessage.innerText = "⚠️ Не удалось получить ответ. Проверь подключение или API-ключ.";
+        console.error(err);
+      } finally {
+        input.disabled = false;
+        sendButton.disabled = false;
+        input.focus();
+      }
+    }
+
+    sendButton.addEventListener("click", sendMessage);
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") sendMessage();
+    });
+  </script>
+</body>
+</html>

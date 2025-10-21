@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Отпускание контроля — Научись доверять жизни</title>
+  <style>
+    :root{
+      --bg1:#d6eaff;
+      --bg2:#eaf7ec;
+      --accent:#74c69d;
+      --accent-deep:#1b4332;
+      --soft:#fffefc;
+      --muted:#425b56;
+    }
+
+    html,body{height:100%;margin:0;font-family:"Segoe UI", Tahoma, Geneva, Verdana, sans-serif;background:linear-gradient(135deg,var(--bg1),var(--bg2));color:var(--muted);line-height:1.7}
+    header{background:var(--accent-deep);color:white;text-align:center;padding:2.2rem 1rem;box-shadow:0 6px 18px rgba(0,0,0,0.12)}
+    header h1{margin:0;font-size:2.2rem}
+    header p{margin:0.4rem 0 0;font-size:1rem;opacity:0.95}
+    .container{max-width:920px;margin:2.5rem auto;background:rgba(255,255,255,0.95);border-radius:14px;padding:2.2rem 2rem;box-shadow:0 10px 30px rgba(0,0,0,0.08);position:relative;overflow:hidden}
+    h2{color:var(--accent-deep);margin-top:1.6rem}
+    p{margin-bottom:1.05rem;color:#223a35}
+    .note{background:linear-gradient(90deg,#f0fbf3,#fff);padding:0.8rem 1rem;border-left:4px solid var(--accent);border-radius:8px;margin:1.2rem 0;font-style:italic;color:var(--accent-deep)}
+    .actions{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.2rem}
+    .btn{
+      background:var(--accent);
+      color:white;border:none;padding:0.85rem 1.4rem;border-radius:30px;font-size:1rem;cursor:pointer;box-shadow:0 6px 18px rgba(27,67,50,0.18);transition:all .28s;
+    }
+    .btn:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(27,67,50,0.22)}
+    .subtle{background:transparent;color:var(--accent-deep);border:2px solid rgba(27,67,50,0.08);padding:0.7rem 1rem;border-radius:30px}
+    footer{background:var(--accent-deep);color:white;text-align:center;padding:1.8rem 1rem;margin-top:2.4rem}
+    /* дыхательная круговая анимация */
+    .breath {
+      width:120px;height:120px;border-radius:50%;margin:1.6rem auto;background:radial-gradient(circle,var(--accent) 20%, rgba(116,198,157,0.2) 60%, transparent 100%);box-shadow:0 0 30px rgba(116,198,157,0.25);animation:inhale 6s ease-in-out infinite;
+    }
+    @keyframes inhale{
+      0%,100%{transform:scale(1);opacity:0.85}
+      50%{transform:scale(1.35);opacity:1}
+    }
+
+    /* визуальные листья/лепестки при отпускании */
+    .petal {
+      position:fixed;
+      width:14px;height:14px;border-radius:50%;pointer-events:none;
+      background:radial-gradient(circle,#fff 10%, rgba(255,255,255,0.2) 60%), linear-gradient(120deg, rgba(255,230,230,0.9), rgba(255,255,230,0.7));
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+      z-index:105;
+      opacity:0.95;
+      transform:translateY(0) rotate(0deg);
+      will-change:transform,opacity;
+    }
+
+    /* мягкая аура */
+    .aura {
+      position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:0;height:0;border-radius:50%;
+      background:radial-gradient(circle, rgba(116,198,157,0.45), transparent 60%);pointer-events:none;z-index:100;opacity:0;
+    }
+
+    /* поддерживающее сообщение */
+    .affirmation {
+      position:fixed;left:50%;transform:translateX(-50%);bottom:6vh;background:rgba(255,255,255,0.95);padding:0.8rem 1.2rem;border-radius:999px;box-shadow:0 8px 26px rgba(27,67,50,0.16);font-weight:600;color:var(--accent-deep);opacity:0;transition:all .4s;z-index:110;
+    }
+
+    /* responsive */
+    @media (max-width:620px){
+      .container{padding:1.4rem}
+      header h1{font-size:1.6rem}
+      .breath{width:100px;height:100px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Отпускание контроля</h1>
+    <p>Научись доверять жизни и снижать внутреннее напряжение</p>
+  </header>
+
+  <main class="container" id="content">
+    <p>Мы привыкли думать, что контроль — это безопасность. Планируя, управляя и предвидя, мы создаём иллюзию стабильности. Но чрезмерная попытка удержать всё под контролем часто ведёт к усталости, тревоге и чувству, что жизнь ускользает сквозь пальцы. Отпускание контроля — не про пассивность или безразличие. Это про мудрость: понимать, где твоя ответственность, а где — поток жизни, которому можно довериться.</p>
+
+    <p>Доверие — это навык, который можно развивать. Когда мы учимся отпускать мелкие сценарии и допускать неопределённость, внутренняя энергия перестаёт растрачиваться на борьбу. Мы начинаем видеть возможности вместо препятствий, учимся быть гибкими и спокойными в моменте.</p>
+
+    <h2>Почему нам сложно отпустить</h2>
+    <p>Страх неопределённости, привычка контролировать и прошлый опыт — все это подпитывает желание держать всё под контролем. Контроль даёт ощущение власти над результатом, но он не гарантирует нужного исхода. Жизнь по своей природе изменчива; сопротивление этой изменчивости создаёт напряжение. Путь к свободе начинается там, где появляется готовность принять перемены.</p>
+
+    <div class="note">«Отпустить — значит перестать тянуться за тем, что уже ускользает, и позволить себе дышать свободно.»</div>
+
+    <h2>Практические шаги, чтобы учиться отпускать</h2>
+    <p><strong>1. Определи зону влияния.</strong> Раздели заботы на то, что в твоей власти, и то, что от тебя не зависит. Сосредотачивай усилия на первом и принимай второе как факт.</p>
+
+    <p><strong>2. Маленькие тесты доверия.</strong> Начни с малого: поручай задачу коллеге без контроля каждого шага или оставь один вечер без планов. Наблюдай, что происходит — чаще всего мир продолжает идти своим чередом, а внутри появляется лёгкость.</p>
+
+    <p><strong>3. Практика «вдох — отпустить».</strong> Когда ты чувствуешь напряжение, сделай вдох, задержку и выдох с намерением: «Я отпускаю». Повторяй 3–5 раз. Этот простой ритуал помогает перестроить нервную систему и вернуть ясность.</p>
+
+    <h2>Визуализация отпускания</h2>
+    <p>Представь, что держишь в руке воздушный шар с записанными заботами. На выдохе отпусти ниточку и наблюдай, как шар уносится. Ум может тревожиться — это нормально. Но каждый акт отпускания делает пространство внутри шире и тише.</p>
+
+    <p>Регулярная практика визуализации помогает снизить эмоциональную реактивность. Это как тренировка доверия: с каждым разом отпустить становится легче.</p>
+
+    <h2>Как отпускание меняет жизнь</h2>
+    <p>Когда ты перестаёшь пытаться контролировать каждую деталь, появляется время и пространство — для творчества, для глубокой работы, для отношений. Энергия, которой раньше хватало на переживания, освобождается для важных дел. Люди вокруг чувствуют твою устойчивость и спокойствие. Ты начинаешь принимать события такими, какие они есть, и реагировать более осознанно.</p>
+
+    <p class="note">Попробуй сегодня: осознанно отпусти одну мелочь — и наблюдай, какой подарок придёт взамен.</p>
+
+    <div class="breath" aria-hidden="true"></div>
+
+    <div class="actions" aria-hidden="true">
+      <button class="btn" id="releaseBtn">Отпустить сейчас</button>
+      <button class="subtle" id="tinyStepBtn">Маленький шаг доверия</button>
+    </div>
+  </main>
+
+  <div class="aura" id="aura"></div>
+  <div class="affirmation" id="affirm">Я доверяю жизни — и это безопасно.</div>
+
+  <footer>
+    <p>© 2025 Mindfulness Journey. Все права защищены.</p>
+    <p>Отпускание — не потеря, а освобождение.</p>
+  </footer>
+
+  <script>
+    // Интерактив: при нажатии "Отпустить сейчас" — мягкая аура, плавающие лепестки и аффирмация
+    const releaseBtn = document.getElementById('releaseBtn');
+    const tinyStepBtn = document.getElementById('tinyStepBtn');
+    const aura = document.getElementById('aura');
+    const affirm = document.getElementById('affirm');
+    const content = document.getElementById('content');
+
+    function randomBetween(min,max){ return Math.random()*(max-min)+min; }
+
+    function createPetal(x, y){
+      const petal = document.createElement('div');
+      petal.className = 'petal';
+      petal.style.left = x + 'px';
+      petal.style.top = y + 'px';
+      // random size & color tint
+      const size = randomBetween(10,26);
+      petal.style.width = size + 'px';
+      petal.style.height = size + 'px';
+      // soft hue variation
+      const hue = Math.floor(randomBetween(100,160));
+      petal.style.background = `radial-gradient(circle, rgba(255,255,255,0.9) 10%, hsla(${hue},80%,85%,0.95) 60%, transparent 100%)`;
+      document.body.appendChild(petal);
+
+      // animate: drift up and sideways, rotate, fade
+      const dx = randomBetween(-200,200);
+      const dy = randomBetween(-300,-80);
+      const rot = randomBetween(-720,720);
+      const duration = randomBetween(2200,3600);
+
+      petal.animate([
+        { transform: 'translate(0px,0px) rotate(0deg)', opacity:1 },
+        { transform: `translate(${dx}px, ${dy}px) rotate(${rot}deg)`, opacity:0 }
+      ], { duration: duration, easing: 'cubic-bezier(.2,.8,.2,1)' });
+
+      setTimeout(()=> petal.remove(), duration + 50);
+    }
+
+    function showAura(){
+      aura.style.transition = 'none';
+      aura.style.width = '0';
+      aura.style.height = '0';
+      aura.style.opacity = '1';
+      // trigger expand
+      setTimeout(()=>{
+        aura.style.transition = 'all 1600ms ease-out';
+        aura.style.width = '1600px';
+        aura.style.height = '1600px';
+        aura.style.opacity = '0';
+      }, 40);
+    }
+
+    function showAffirm(text){
+      affirm.textContent = text;
+      affirm.style.opacity = '0';
+      // appear
+      setTimeout(()=> affirm.style.opacity = '1', 80);
+      // hide later
+      setTimeout(()=> affirm.style.opacity = '0', 3800);
+    }
+
+    releaseBtn.addEventListener('click', () => {
+      // aura
+      showAura();
+      // affirmation
+      showAffirm('Я отпускаю. Я доверяю жизни.');
+      // create multiple petals from center area
+      const rect = content.getBoundingClientRect();
+      const cx = rect.left + rect.width/2;
+      const cy = rect.top + rect.height/2;
+      for(let i=0;i<18;i++){
+        // start position around center +/- jitter
+        const sx = cx + randomBetween(-80,80);
+        const sy = cy + randomBetween(-40,80);
+        createPetal(sx, sy);
+      }
+    });
+
+    tinyStepBtn.addEventListener('click', () => {
+      // small trust exercise: open to a tiny uncertainty
+      showAffirm('Маленький шаг — большое доверие.');
+      // small 3-petal burst
+      const rect = content.getBoundingClientRect();
+      const sx = rect.left + rect.width*0.75;
+      const sy = rect.top + rect.height*0.4;
+      for(let i=0;i<3;i++){
+        setTimeout(()=> createPetal(sx + randomBetween(-30,30), sy + randomBetween(-20,30)), i*180);
+      }
+    });
+
+    // accessibility: allow pressing Enter on focused buttons
+    [releaseBtn,tinyStepBtn].forEach(b => {
+      b.addEventListener('keydown', (e)=>{
+        if(e.key === 'Enter' || e.key === ' ') b.click();
+      });
+    });
+
+    // gentle hint on first visit: show a short affirmation after a delay
+    setTimeout(()=> showAffirm('Попробуй отпустить одну мелочь — и почувствуй разницу.'), 2500);
+  </script>
+</body>
+</html>
+
