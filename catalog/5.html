@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Медитация благодарности — Практика осознанности</title>
+  <style>
+    :root {
+      --pastel-pink: #fde2e4;
+      --pastel-gold: #fff1d0;
+      --soft-pink: #f9bec7;
+      --soft-yellow: #ffeb99;
+      --dark-pink: #c9184a;
+      --dark-green: #1b4332;
+      --soft-blue: #a8dadc;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-gold));
+      color: #333;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: var(--dark-pink);
+      color: white;
+      text-align: center;
+      padding: 2rem 0;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .practice {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.2s ease, transform 1.2s ease;
+    }
+
+    .practice.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      color: var(--dark-green);
+      margin-top: 2rem;
+    }
+
+    p, li {
+      margin-bottom: 1.2rem;
+    }
+
+    blockquote {
+      background-color: var(--soft-yellow);
+      border-left: 6px solid var(--dark-green);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 8px;
+      font-style: italic;
+    }
+
+    .image-section {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .image-section img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .return-link {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.6rem;
+      background-color: var(--soft-blue);
+      color: var(--dark-green);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .return-link:hover {
+      background-color: var(--soft-pink);
+      transform: translateY(-2px);
+    }
+
+    button {
+      background-color: var(--dark-pink);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-right: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: var(--dark-green);
+    }
+
+    .heart {
+      width: 120px;
+      height: 120px;
+      background-color: var(--soft-pink);
+      position: relative;
+      transform: rotate(-45deg);
+      margin: 2rem auto;
+      box-shadow: 0 0 40px rgba(255, 150, 150, 0.5);
+      opacity: 0.7;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    .heart::before, .heart::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background-color: var(--soft-pink);
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -60px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 60px;
+      top: 0;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: rotate(-45deg) scale(1); opacity: 0.7; }
+      50% { transform: rotate(-45deg) scale(1.1); opacity: 1; }
+    }
+
+    .gratitude-list {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+      margin: 2rem 0;
+    }
+
+    .gratitude-list input {
+      width: 100%;
+      padding: 0.7rem;
+      border-radius: 6px;
+      border: 1px solid var(--soft-blue);
+      margin-bottom: 0.8rem;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .gratitude-list input:focus {
+      border-color: var(--dark-pink);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      background-color: var(--dark-green);
+      color: white;
+    }
+
+    .shine {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(255,255,200,0.4) 0%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 2s ease;
+      z-index: 5;
+    }
+
+    .shine.active {
+      opacity: 1;
+      animation: fadeOut 4s forwards ease;
+    }
+
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shine" id="shine"></div>
+
+  <header>
+    <div class="container">
+      <h1>Медитация благодарности</h1>
+      <p>Развивай чувство признательности и тепла 💗</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <section class="practice">
+      <p>Эта практика поможет тебе вспомнить всё хорошее, что уже есть в твоей жизни.
+      Благодарность — это внутренний свет, который делает нас мягче, теплее и мудрее.
+      Даже в трудные дни, она напоминает, что чудеса уже происходят вокруг нас.</p>
+
+      <div class="image-section">
+        <img src="https://i.pinimg.com/originals/2f/9d/0f/2f9d0f2c66785a3e926cfdf9f7edc6b5.jpg" alt="Медитация благодарности — спокойное сердце">
+      </div>
+
+      <blockquote>
+        «Когда ты благодарен — страхи исчезают, а сердце открывается для радости.»
+      </blockquote>
+
+      <h2>Как выполнять медитацию</h2>
+      <ol>
+        <li>Сядь удобно, выпрями спину и закрой глаза.</li>
+        <li>Сделай три глубоких вдоха и выдоха.</li>
+        <li>Вспомни три вещи, за которые ты благодарен сегодня.</li>
+        <li>На каждом вдохе ощущай тёплое сияние в груди.</li>
+        <li>На выдохе — делись этим теплом со всем миром.</li>
+      </ol>
+
+      <div class="heart"></div>
+
+      <div class="gratitude-list">
+        <p><strong>Запиши три вещи, за которые ты благодарен сегодня:</strong></p>
+        <input type="text" placeholder="1. ..." id="g1">
+        <input type="text" placeholder="2. ..." id="g2">
+        <input type="text" placeholder="3. ..." id="g3">
+        <button id="saveBtn">💾 Сохранить благодарности</button>
+        <button id="completeBtn">✨ Завершить медитацию</button>
+      </div>
+
+    </section>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Медитации для ума и сердца. Все права защищены.</p>
+      <p>Благодарность — это язык души 🌸</p>
+    </div>
+  </footer>
+
+  <audio id="bg" src="https://cdn.pixabay.com/audio/2022/03/15/audio_7d8b9e63a8.mp3" loop></audio>
+  <audio id="chime" src="https://cdn.pixabay.com/audio/2021/09/14/audio_86c8cc7158.mp3"></audio>
+
+  <script>
+    const section = document.querySelector('.practice');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.3 });
+    observer.observe(section);
+
+    const bg = document.getElementById('bg');
+    const chime = document.getElementById('chime');
+    const completeBtn = document.getElementById('completeBtn');
+    const saveBtn = document.getElementById('saveBtn');
+    const shine = document.getElementById('shine');
+    const inputs = [document.getElementById('g1'), document.getElementById('g2'), document.getElementById('g3')];
+
+    // Загружаем сохранённые благодарности
+    window.addEventListener('DOMContentLoaded', () => {
+      inputs.forEach((input, index) => {
+        const savedValue = localStorage.getItem(`gratitude_${index}`);
+        if (savedValue) input.value = savedValue;
+      });
+    });
+
+    // Сохраняем благодарности
+    saveBtn.addEventListener('click', () => {
+      inputs.forEach((input, index) => {
+        localStorage.setItem(`gratitude_${index}`, input.value);
+      });
+      alert("💖 Твои благодарности сохранены!");
+    });
+
+    // Включаем музыку при первом клике
+    let soundOn = false;
+    document.body.addEventListener('click', () => {
+      if (!soundOn) {
+        bg.play();
+        soundOn = true;
+      }
+    });
+
+    // Завершение медитации с эффектом сияния
+    completeBtn.addEventListener('click', () => {
+      chime.play();
+      shine.classList.add('active');
+      setTimeout(() => {
+        shine.classList.remove('active');
+      }, 4000);
+    });
+  </script>
+</body>
+</html>

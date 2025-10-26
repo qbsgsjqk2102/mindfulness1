@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Медитация присутствия</title>
+  <style>
+    :root {
+      --soft-sand: #f5f1e6;
+      --warm-beige: #e8dfca;
+      --earth-brown: #a38f6d;
+      --deep-brown: #6d5d4f;
+      --white: #fffdf9;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(135deg, var(--warm-beige), var(--soft-sand));
+      color: var(--deep-brown);
+      overflow-x: hidden;
+      line-height: 1.8;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      background-color: rgba(255,253,249,0.3);
+      backdrop-filter: blur(5px);
+      border-bottom: 1px solid rgba(109,93,79,0.1);
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      color: var(--deep-brown);
+      margin-bottom: 0.5rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+    }
+
+    p.subtitle {
+      color: var(--earth-brown);
+      font-size: 1.3rem;
+      opacity: 0.8;
+      font-style: italic;
+      margin-top: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .practice {
+      background-color: rgba(255,253,249,0.7);
+      border-radius: 20px;
+      padding: 3rem;
+      margin: 2rem 0;
+      box-shadow: 0 10px 30px rgba(163,143,109,0.1);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1.2s ease;
+      border: 1px solid rgba(163,143,109,0.2);
+    }
+
+    .practice.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .breathing-circle {
+      width: 150px;
+      height: 150px;
+      border: 3px solid var(--earth-brown);
+      border-radius: 50%;
+      margin: 2.5rem auto;
+      position: relative;
+      animation: breathe 8s infinite ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--deep-brown);
+      font-size: 1.1rem;
+    }
+
+    @keyframes breathe {
+      0%, 100% {
+        transform: scale(0.8);
+        opacity: 0.7;
+        border-color: var(--earth-brown);
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 1;
+        border-color: var(--deep-brown);
+      }
+    }
+
+    blockquote {
+      border-left: 3px solid var(--earth-brown);
+      padding-left: 1.5rem;
+      color: var(--deep-brown);
+      font-style: italic;
+      margin: 2rem 0;
+      font-size: 1.2rem;
+    }
+
+    button {
+      background-color: var(--deep-brown);
+      color: var(--white);
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: block;
+      margin: 2rem auto;
+      transition: all 0.4s ease;
+      font-family: 'Georgia', serif;
+      letter-spacing: 1px;
+    }
+
+    button:hover {
+      background-color: var(--earth-brown);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(109,93,79,0.2);
+    }
+
+    .moment {
+      text-align: center;
+      font-size: 1.4rem;
+      color: var(--deep-brown);
+      margin-top: 2rem;
+      opacity: 0;
+      transition: opacity 1s ease;
+      min-height: 60px;
+      font-style: italic;
+    }
+
+    .moment.show {
+      opacity: 1;
+    }
+
+    .floating-element {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background-color: var(--earth-brown);
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: float 15s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(20px, -30px) rotate(90deg); }
+      50% { transform: translate(-15px, -50px) rotate(180deg); }
+      75% { transform: translate(30px, -20px) rotate(270deg); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem 0;
+      color: var(--earth-brown);
+      background-color: rgba(255,253,249,0.3);
+      margin-top: 3rem;
+      border-top: 1px solid rgba(109,93,79,0.1);
+    }
+  </style>
+</head>
+<body>
+  <!-- Плавающие элементы для фона -->
+  <div id="floating-elements"></div>
+
+  <header>
+    <h1>Медитация присутствия</h1>
+    <p class="subtitle">Просто быть. Без спешки, без ожиданий.</p>
+  </header>
+
+  <div class="container">
+    <section class="practice">
+      <p>В этот момент нет необходимости куда-то спешить или что-то достигать.
+      Просто позволь себе быть — здесь и сейчас.</p>
+
+      <p>Ощути контакт тела с поверхностью, на которой ты находишься.
+      Заметь дыхание — естественное, без усилий. Вдох... выдох...</p>
+
+      <div class="breathing-circle">Здесь и сейчас</div>
+
+      <blockquote>«В настоящем моменте нет проблем,
+      есть только переживание жизни такой, какая она есть.»</blockquote>
+
+      <p>Мысли приходят и уходят, как облака на небе.
+      Ты не нуждаешься в том, чтобы цепляться за них или отвергать.
+      Просто наблюдай, как они появляются и исчезают.</p>
+
+      <p>В этом мгновении — всё, что есть. Простота бытия.
+      Полнота присутствия.</p>
+
+      <button id="presenceBtn">🕊️ Пребывать в моменте</button>
+      <div class="moment" id="momentText"></div>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2025 Пространство осознанности</p>
+  </footer>
+
+  <script>
+    // Анимация появления при скролле
+    const section = document.querySelector('.practice');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+    observer.observe(section);
+
+    // Создание плавающих элементов
+    const floatingContainer = document.getElementById('floating-elements');
+    for(let i = 0; i < 15; i++) {
+      const element = document.createElement('div');
+      element.classList.add('floating-element');
+      element.style.left = Math.random() * 100 + 'vw';
+      element.style.top = Math.random() * 100 + 'vh';
+      element.style.animationDelay = Math.random() * 20 + 's';
+      element.style.width = (Math.random() * 10 + 5) + 'px';
+      element.style.height = element.style.width;
+      floatingContainer.appendChild(element);
+    }
+
+    // Кнопка присутствия
+    const presenceBtn = document.getElementById('presenceBtn');
+    const momentText = document.getElementById('momentText');
+
+    presenceBtn.addEventListener('click', () => {
+      const phrases = [
+        "Присутствуй в этом вдохе...",
+        "Ощути тишину между мыслями...",
+        "Позволь миру быть таким, какой он есть...",
+        "В этом мгновении — вся жизнь...",
+        "Просто будь. Ничего не нужно делать...",
+        "Откройся переживанию настоящего..."
+      ];
+
+      momentText.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+      momentText.classList.add('show');
+
+      setTimeout(() => {
+        momentText.classList.remove('show');
+      }, 5000);
+    });
+  </script>
+</body>
+</html>

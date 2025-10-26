@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отпустить контроль — Медитация</title>
+  <style>
+    :root {
+      --mint-light: #d8f3dc;
+      --mint-medium: #b7e4c7;
+      --mint-dark: #1b4332;
+      --mint-soft: #95d5b2;
+      --mint-glow: #caffbf;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, var(--mint-light), var(--mint-medium));
+      color: #2b2b2b;
+      line-height: 1.7;
+      overflow-x: hidden;
+      min-height: 100vh;
+      transition: background 1s ease;
+      position: relative;
+    }
+
+    header {
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.4);
+      padding: 2rem 0;
+      backdrop-filter: blur(4px);
+    }
+
+    h1 {
+      color: var(--mint-dark);
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .practice {
+      background-color: rgba(255, 255, 255, 0.75);
+      border-radius: 14px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1.2s ease, transform 1.2s ease;
+    }
+
+    .practice.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      color: var(--mint-dark);
+    }
+
+    blockquote {
+      background-color: rgba(255, 255, 255, 0.6);
+      border-left: 4px solid var(--mint-soft);
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      font-style: italic;
+    }
+
+    /* Кнопки */
+    button {
+      background-color: var(--mint-dark);
+      color: var(--white);
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(27, 67, 50, 0.3);
+    }
+
+    button:hover {
+      background-color: var(--mint-soft);
+      color: var(--mint-dark);
+      transform: scale(1.05);
+    }
+
+    .return-link {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.6rem;
+      background-color: var(--mint-medium);
+      color: var(--mint-dark);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .return-link:hover {
+      background-color: var(--mint-soft);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      background-color: rgba(255, 255, 255, 0.5);
+      color: var(--mint-dark);
+      position: relative;
+      z-index: 3;
+    }
+
+    /* Волна */
+    .wave {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: radial-gradient(circle, rgba(183, 228, 199, 0.6) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 10;
+      opacity: 0;
+      transition: all 2s ease-out;
+    }
+
+    .wave.active {
+      width: 2500px;
+      height: 2500px;
+      opacity: 1;
+    }
+
+    /* Пузыри */
+    .bubble {
+      position: fixed;
+      bottom: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.7);
+      animation: rise 4s ease-in forwards;
+      z-index: 5;
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.4);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Отпустить контроль</h1>
+      <p>Позволь жизни течь естественно и свободно 💧</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <section class="practice">
+      <p>Иногда мы держим слишком крепко — мысли, ожидания, страхи, желания всё контролировать.
+      Эта практика поможет тебе отпустить хватку ума и почувствовать, как жизнь сама поддерживает тебя, если просто позволить ей течь.</p>
+
+      <blockquote>«Я позволяю себе быть. Всё идёт, как должно.»</blockquote>
+
+      <h2>Как выполнять медитацию</h2>
+      <ol>
+        <li>Сядь удобно или ляг, сделай несколько глубоких вдохов и выдохов.</li>
+        <li>На каждом выдохе мысленно произноси: <em>«Я отпускаю…»</em> — и ощущай, как напряжение растворяется.</li>
+        <li>Позволь дыханию течь само по себе. Не управляй им. Просто наблюдай.</li>
+        <li>Если появляются мысли — мягко отпускай их, как облака, проплывающие по небу.</li>
+        <li>Почувствуй лёгкость и доверие. Ты в потоке жизни, и она знает путь.</li>
+      </ol>
+
+      <p>Эта практика напоминает: не всё нужно контролировать. Иногда лучший способ двигаться — просто позволить себе быть в настоящем моменте.</p>
+
+      <button id="releaseControl">🌊 Отпустить контроль</button>
+      <button id="playMusic">🎵 Включить музыку</button>
+
+    </section>
+  </div>
+
+  <div class="wave" id="waveEffect"></div>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Медитации спокойствия. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <audio id="music" src="https://cdn.pixabay.com/audio/2023/03/10/audio_3e2e5a9e93.mp3" loop></audio>
+
+  <script>
+    const section = document.querySelector('.practice');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.3 });
+    observer.observe(section);
+
+    const releaseBtn = document.getElementById('releaseControl');
+    const wave = document.getElementById('waveEffect');
+    const music = document.getElementById('music');
+    const playBtn = document.getElementById('playMusic');
+    let playing = false;
+
+    releaseBtn.addEventListener('click', () => {
+      // Волна
+      wave.classList.add('active');
+      setTimeout(() => wave.classList.remove('active'), 2000);
+
+      // Пузыри
+      for (let i = 0; i < 15; i++) {
+        const bubble = document.createElement('div');
+        bubble.classList.add('bubble');
+        const size = Math.random() * 20 + 10 + 'px';
+        bubble.style.width = size;
+        bubble.style.height = size;
+        bubble.style.left = Math.random() * window.innerWidth + 'px';
+        bubble.style.animationDuration = (3 + Math.random() * 2) + 's';
+        document.body.appendChild(bubble);
+        setTimeout(() => bubble.remove(), 5000);
+      }
+    });
+
+    playBtn.addEventListener('click', () => {
+      if (!playing) {
+        music.play();
+        playBtn.textContent = '⏸ Остановить музыку';
+        playing = true;
+      } else {
+        music.pause();
+        playBtn.textContent = '🎵 Включить музыку';
+        playing = false;
+      }
+    });
+  </script>
+</body>
+</html>

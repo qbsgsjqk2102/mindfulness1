@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дыхание сердца — Медитация</title>
+  <style>
+    :root {
+      --soft-pink: #ffd6e0;
+      --peach: #ffe5d9;
+      --rose: #f8a5c2;
+      --deep-rose: #c44569;
+      --white: #fffafc;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(160deg, var(--peach), var(--soft-pink));
+      color: #5b2c3c;
+      overflow-x: hidden;
+      line-height: 1.7;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 0;
+      background-color: rgba(255,255,255,0.5);
+      backdrop-filter: blur(8px);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: var(--deep-rose);
+      margin-bottom: 0.3rem;
+    }
+
+    p.subtitle {
+      color: #5b2c3c;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .practice {
+      background-color: rgba(255,255,255,0.85);
+      border-radius: 25px;
+      padding: 2.5rem;
+      margin: 2rem 0;
+      box-shadow: 0 0 30px rgba(255,182,193,0.3);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1.5s ease;
+    }
+
+    .practice.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    blockquote {
+      border-left: 4px solid var(--rose);
+      padding-left: 1rem;
+      color: var(--deep-rose);
+      font-style: italic;
+      margin: 1.5rem 0;
+    }
+
+    /* Сердце */
+    .heart {
+      width: 120px;
+      height: 120px;
+      background-color: var(--rose);
+      position: relative;
+      margin: 2rem auto;
+      transform: rotate(-45deg);
+      animation: heartbeat 3s infinite ease-in-out;
+      box-shadow: 0 0 30px rgba(248,165,194,0.4);
+    }
+
+    .heart::before, .heart::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background-color: var(--rose);
+      border-radius: 50%;
+    }
+
+    .heart::before { top: -60px; left: 0; }
+    .heart::after { top: 0; left: 60px; }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1) rotate(-45deg); box-shadow: 0 0 40px rgba(248,165,194,0.4); }
+      25% { transform: scale(1.15) rotate(-45deg); box-shadow: 0 0 70px rgba(248,165,194,0.6); }
+      50% { transform: scale(1) rotate(-45deg); }
+      75% { transform: scale(1.15) rotate(-45deg); }
+    }
+
+    /* Кнопка */
+    button {
+      background-color: var(--deep-rose);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 40px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: block;
+      margin: 1.5rem auto;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(244,143,177,0.5);
+    }
+
+    button:hover {
+      background-color: var(--rose);
+      transform: scale(1.07);
+      box-shadow: 0 0 30px rgba(248,165,194,0.8);
+    }
+
+    /* Эффект пульсации света */
+    .light-pulse {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: radial-gradient(circle, rgba(255,192,203,0.4), transparent);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: expandPulse 2.5s ease-out;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    @keyframes expandPulse {
+      from { width: 0; height: 0; opacity: 1; }
+      to { width: 200vw; height: 200vh; opacity: 0; }
+    }
+
+    .affirmation {
+      text-align: center;
+      font-size: 1.3rem;
+      color: var(--deep-rose);
+      margin-top: 1.5rem;
+      opacity: 0;
+      transition: opacity 1.5s ease;
+    }
+
+    .affirmation.show {
+      opacity: 1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: #5b2c3c;
+      background-color: rgba(255,255,255,0.5);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Дыхание сердца</h1>
+    <p class="subtitle">Почувствуй ритм жизни внутри себя ❤️</p>
+  </header>
+
+  <div class="container">
+    <section class="practice">
+      <p>Сядь удобно. Сделай глубокий вдох...
+      И выдох. Почувствуй, как твоё сердце мягко бьётся в груди —
+      ритм жизни, который всегда рядом.
+      Представь, что каждое дыхание проходит прямо через сердце —
+      вдох — наполняет любовью, выдох — отпускает напряжение.</p>
+
+      <blockquote>«Моё сердце — источник покоя и тепла.»</blockquote>
+
+      <div class="heart"></div>
+
+      <p>Дыши мягко и спокойно, соединяя дыхание с биением сердца.
+      Позволь телу расслабиться и почувствовать благодарность
+      за этот момент, за этот ритм, за жизнь.</p>
+
+      <button id="breatheBtn">💗 Дышать сердцем</button>
+      <div class="affirmation" id="affirmation"></div>
+
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2025 Медитации осознанности. Все права защищены.</p>
+  </footer>
+
+  <script>
+    const section = document.querySelector('.practice');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.3 });
+    observer.observe(section);
+
+    const breatheBtn = document.getElementById('breatheBtn');
+    const affirmation = document.getElementById('affirmation');
+
+    breatheBtn.addEventListener('click', () => {
+      // Эффект пульсации света
+      const pulse = document.createElement('div');
+      pulse.classList.add('light-pulse');
+      document.body.appendChild(pulse);
+      setTimeout(() => pulse.remove(), 2500);
+
+      // Аффирмации
+      const phrases = [
+        "💖 Я дышу сердцем и наполняюсь любовью.",
+        "🌸 Моё сердце открыто миру и себе.",
+        "💓 Каждый вдох приносит мир, каждый выдох — благодарность.",
+        "🌷 Я чувствую ритм жизни внутри себя."
+      ];
+      affirmation.textContent = phrases[Math.floor(Math.random()*phrases.length)];
+      affirmation.classList.add('show');
+      setTimeout(() => affirmation.classList.remove('show'), 6000);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Осознанное движение — Медитация</title>
+  <style>
+    :root {
+      --mint: #c9f5dd;
+      --mint-dark: #4caf8f;
+      --gold-soft: #fdf5c9;
+      --text: #20423e;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top, var(--mint), #f9fff9);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.7;
+      position: relative;
+      height: 100%;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 0;
+      background-color: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(6px);
+    }
+
+    h1 {
+      color: var(--mint-dark);
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .practice {
+      background-color: rgba(255,255,255,0.8);
+      border-radius: 25px;
+      padding: 2.5rem;
+      margin: 2rem 0;
+      box-shadow: 0 0 30px rgba(0,0,0,0.05);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1.3s ease;
+    }
+
+    .practice.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    blockquote {
+      border-left: 4px solid var(--mint-dark);
+      padding-left: 1rem;
+      color: var(--mint-dark);
+      font-style: italic;
+      margin: 1.5rem 0;
+    }
+
+    .flow-line {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .flow-line span {
+      position: absolute;
+      width: 3px;
+      height: 120px;
+      background: linear-gradient(to bottom, rgba(76,175,143,0.3), rgba(255,255,255,0));
+      border-radius: 10px;
+      top: -100px;
+      animation: moveLine 8s linear infinite;
+    }
+
+    @keyframes moveLine {
+      0% { transform: translateY(0) rotate(10deg); opacity: 0.6; }
+      100% { transform: translateY(110vh) rotate(-10deg); opacity: 0; }
+    }
+
+    /* Дыхательный ритм */
+    .breath-orb {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--mint-dark), var(--gold-soft));
+      margin: 2rem auto;
+      animation: pulseBreath 6s ease-in-out infinite;
+      box-shadow: 0 0 30px rgba(76,175,143,0.4);
+    }
+
+    @keyframes pulseBreath {
+      0%,100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; }
+    }
+
+    /* Пози движения */
+    .poses {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .pose {
+      background: rgba(255,255,255,0.8);
+      border: 2px solid var(--mint-dark);
+      border-radius: 20px;
+      padding: 1.5rem;
+      width: 130px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(76,175,143,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pose:hover {
+      transform: scale(1.05);
+      background: linear-gradient(145deg, var(--mint), var(--gold-soft));
+    }
+
+    .pose span {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .tip {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) translateY(100%);
+      background: rgba(255,255,255,0.9);
+      border-radius: 10px;
+      padding: 0.8rem 1.2rem;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      opacity: 0;
+      transition: all 0.6s ease;
+      pointer-events: none;
+    }
+
+    .pose.active .tip {
+      transform: translateX(-50%) translateY(-120%);
+      opacity: 1;
+    }
+
+    button {
+      background-color: var(--mint-dark);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      margin: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(76,175,143,0.3);
+    }
+
+    button:hover {
+      background-color: var(--gold-soft);
+      color: var(--text);
+      transform: scale(1.07);
+    }
+
+    .flow-glow {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(76,175,143,0.4), transparent);
+      animation: expandGlow 2s ease-out;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    @keyframes expandGlow {
+      from { width: 0; height: 0; opacity: 1; }
+      to { width: 200vw; height: 200vh; opacity: 0; }
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: var(--mint-dark);
+      background-color: rgba(255,255,255,0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="flow-line"></div>
+
+  <header>
+    <h1>Осознанное движение</h1>
+    <p>Медитация через лёгкие растяжки и дыхание 🌿</p>
+  </header>
+
+  <div class="container">
+    <section class="practice">
+      <p>Движение может быть не только физическим, но и внутренним.
+      Позволь телу мягко растекаться в пространстве, словно вода.
+      Слушай дыхание, чувствуй баланс, двигайся с любовью к себе.</p>
+
+      <blockquote>«Когда я двигаюсь осознанно, я танцую с жизнью.»</blockquote>
+
+      <div class="breath-orb"></div>
+
+      <h2>Попробуй простые осознанные движения</h2>
+
+      <div class="poses">
+        <div class="pose"><span>🌸</span>Шея<div class="tip">Медленно поверни голову вправо и влево, чувствуя движение позвонков.</div></div>
+        <div class="pose"><span>🌿</span>Плечи<div class="tip">Подними и опусти плечи. Сбрось напряжение с выдохом.</div></div>
+        <div class="pose"><span>🌞</span>Руки<div class="tip">Потянись вверх, как к небу. Почувствуй лёгкость и силу.</div></div>
+        <div class="pose"><span>🍃</span>Спина<div class="tip">Медленно округли спину, а потом расправь её, вдохнув глубже.</div></div>
+        <div class="pose"><span>🌊</span>Ноги<div class="tip">Перенеси вес с одной ноги на другую, сохраняя устойчивость.</div></div>
+      </div>
+
+      <button id="flowBtn">✨ Почувствовать поток</button>
+
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2025 Медитации осознанности. Все права защищены.</p>
+  </footer>
+
+  <script>
+    const section = document.querySelector('.practice');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.3 });
+    observer.observe(section);
+
+    const poses = document.querySelectorAll('.pose');
+    poses.forEach(pose => {
+      pose.addEventListener('click', () => {
+        pose.classList.toggle('active');
+      });
+    });
+
+    // Фоновые линии движения
+    const flowContainer = document.querySelector('.flow-line');
+    for (let i = 0; i < 30; i++) {
+      const line = document.createElement('span');
+      line.style.left = Math.random() * 100 + 'vw';
+      line.style.animationDelay = Math.random() * 8 + 's';
+      line.style.height = 80 + Math.random() * 80 + 'px';
+      flowContainer.appendChild(line);
+    }
+
+    // Эффект потока
+    const flowBtn = document.getElementById('flowBtn');
+    flowBtn.addEventListener('click', () => {
+      const glow = document.createElement('div');
+      glow.classList.add('flow-glow');
+      document.body.appendChild(glow);
+      setTimeout(() => glow.remove(), 2000);
+
+      const phrases = [
+        "Ты движешься мягко, в своём ритме 🌬️",
+        "Каждое движение — как дыхание жизни 💫",
+        "В теле покой, в сердце — присутствие 🌸"
+      ];
+      const msg = document.createElement('div');
+      msg.classList.add('message');
+      msg.textContent = phrases[Math.floor(Math.random()*phrases.length)];
+      msg.style.position = 'absolute';
+      msg.style.top = '50%';
+      msg.style.left = '50%';
+      msg.style.transform = 'translate(-50%, -50%)';
+      msg.style.background = 'rgba(255,255,255,0.9)';
+      msg.style.padding = '1rem 2rem';
+      msg.style.borderRadius = '30px';
+      msg.style.fontSize = '1.1rem';
+      msg.style.boxShadow = '0 0 20px rgba(76,175,143,0.3)';
+      msg.style.opacity = '0';
+      msg.style.transition = 'opacity 1s ease';
+      document.body.appendChild(msg);
+      setTimeout(() => msg.style.opacity = '1', 100);
+      setTimeout(() => { msg.style.opacity = '0'; msg.remove(); }, 4000);
+    });
+  </script>
+</body>
+</html>
